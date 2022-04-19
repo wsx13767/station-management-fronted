@@ -13,8 +13,10 @@ class App extends Component {
   render(){
     return(
       <div>
-        <h1>Bookkeeper!</h1>
-        <Link to="/stationCreate">stationCreate</Link>
+        <Link to="/stationCreate">新增站點</Link><br/>
+        <Link to="/stationList">站點列表</Link><br/>
+        <Link to="/nurseCreate">新增護士</Link><br/>
+        <Link to="/nurseList">護士列表</Link><br/>
       </div>
     );
   }
