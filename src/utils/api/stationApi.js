@@ -16,4 +16,8 @@ export default class station {
         // return obj;
         return api({url: '/station', method: 'POST', data: {name}});
     }
+
+    static findNurseInfoByStationId(stationId) {
+        return api({url: `/station/${stationId}/nurses`});
+    }
 }
