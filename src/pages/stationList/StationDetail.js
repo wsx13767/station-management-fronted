@@ -4,36 +4,54 @@ import stationApi from '../../utils/api/stationApi.js'
 
 class StationDetail extends Component {
     state = {
-        rows: []
+        rows: [],
+        stationName: ''
     }
 
     constructor(props) {
         super(props)
+        this.stationNameRef = React.createRef();
     }
 
     async componentDidMount() {
         const data = await stationApi.findNurseInfoByStationId(this.props.params.stationId);
-        console.log(data);
-        this.setState({rows: data.map(r => <tr>
-            <td>{r.id}</td>
-            <td>{`${r.joinTime[0]}/${r.joinTime[1]}/${r.joinTime[2]} ${r.joinTime[3]}:${r.joinTime[4]}:${r.joinTime[5]}`}</td>
-        </tr>)});
+        const stationData = await stationApi.getStation(this.props.params.stationId);
+        this.setState({
+            rows: data.map(r => <tr>
+                    <td>{r.id}</td>
+                    <td>{`${r.joinTime[0]}/${r.joinTime[1]}/${r.joinTime[2]} ${r.joinTime[3]}:${r.joinTime[4]}:${r.joinTime[5]}`}</td>
+                </tr>),
+            stationName: stationData.name
+        });
     }
 
     goHome = ()=> {
         this.props.navigation('/');
     }
 
-    saveStation = ()=> {
-        
+    saveStation = async (e)=> {
+        e.stopPropagation();
+        const data = await stationApi.updateStation(this.props.params.stationId, this.stationNameRef.current.value);
+
+        if (data) {
+            alert('更新成功');
+        }
+
+        this.props.navigation('/');
+    }
+
+    changeState = (event)=> {
+        this.setState({stationName:event.target.value})
     }
 
     render() {
         return (
             <div>
                 <button onClick={this.goHome}>返回</button>
-                <button>儲存</button><br/>
-                <label>站點名稱</label><input type="text"></input>
+                <button onClick={this.saveStation}>儲存</button><br/>
+                <label>站點名稱</label>
+                <input type="text" ref={this.stationNameRef} value={this.state.stationName}
+                  onChange={this.changeState}></input>
                 <h3>站點護士列表</h3>
                 <table>
                     <thead>

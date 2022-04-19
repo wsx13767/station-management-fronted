@@ -9,11 +9,11 @@ export default class station {
         return api({url: `/station/${id}`});
     }
 
+    static updateStation(id, name) {
+        return api({url: `/station/${id}`, method: 'PUT', data: {name}});
+    }
+
     static insertStation(name) {
-        // const obj = {'name': name};
-        
-        // console.log(JSON.stringify(obj));
-        // return obj;
         return api({url: '/station', method: 'POST', data: {name}});
     }
 
