@@ -26,8 +26,10 @@ class StationList extends Component {
         this.setState({rows: data.map(r => <tr>
             <td>{r.name}</td>
             <td>{r.updateTime}</td>
-            <td><Link to={`/stationDetail/${r.id}`}>View</Link></td>
-            <td><a href='javascript:;' onClick={() => this.doDelete(r.id)}>Del</a></td>
+            <td>
+                <Link to={`/stationDetail/${r.id}`}>View</Link><span> </span>
+                <a href='javascript:;' onClick={() => this.doDelete(r.id)}>Del</a>
+            </td>
         </tr>)});
     }
 
