@@ -6,6 +6,8 @@ import StationList from '../pages/station/StationList'
 import StationDetail from '../pages/station/StationDetail'
 import NurseCreate from '../pages/nurse/NurseCreate'
 import NurseList from '../pages/nurse/NurseList'
+import NurseDetail from '../pages/nurse/NurseDetail'
+
 
 class StationRoute extends Component {
     constructor(props) {
@@ -23,6 +25,8 @@ class StationRoute extends Component {
                         <Route path='stationDetail/:stationId' element={<StationDetail />} />
                         <Route path='nurseCreate' element={<NurseCreate />} />
                         <Route path='nurseList' element={<NurseList/>} />
+                        <Route path='nurseDetail/:nurseId' element={<NurseDetail/>} />
+                        
                     </Routes>
                 </Router>
             </div>

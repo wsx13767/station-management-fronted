@@ -4,12 +4,13 @@ import nurseApi from '../../utils/api/nurseApi.js';
 import stationApi from '../../utils/api/stationApi.js';
 import { MultiSelect } from "react-multi-select-component";
 
-const options = [];
+let options = [];
 const NurseCreate = ()=> {
     const navigate = useNavigate();
     const [selected, setSelected] = useState([]);
 
     useEffect(()=>{
+        options = [];
         stationApi.getAllStation().then(data => {
             data.forEach(element => {
                 const row = {label: element.name, value: element.id};
