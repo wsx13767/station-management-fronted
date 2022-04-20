@@ -55,8 +55,10 @@ class StationDetail extends Component {
                 <h3>站點護士列表</h3>
                 <table>
                     <thead>
-                        <th>員工編號</th>
-                        <th>加入時間</th>
+                        <tr>
+                            <th>員工編號</th>
+                            <th>加入時間</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {this.state.rows}

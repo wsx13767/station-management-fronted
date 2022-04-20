@@ -37,9 +37,11 @@ class StationList extends Component {
                 <button><Link to="/">返回</Link></button>
                 <table>
                     <thead>
-                        <th>站點</th>
-                        <th>修改時間</th>
-                        <th>動作</th>
+                        <tr>
+                            <th>站點</th>
+                            <th>修改時間</th>
+                            <th>動作</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {this.state.rows}
