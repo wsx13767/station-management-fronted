@@ -1,9 +1,9 @@
 import { HashRouter as Router, Routes, Route} from 'react-router-dom';
 import React, {Component} from 'react';
 import App from '../App';
-import StationCreate from '../pages/StationCreate'
-import StationList from '../pages/stationList/StationList'
-import StationDetail from '../pages/stationList/StationDetail'
+import StationCreate from '../pages/station/StationCreate'
+import StationList from '../pages/station/StationList'
+import StationDetail from '../pages/station/StationDetail'
 
 class StationRoute extends Component {
     constructor(props) {

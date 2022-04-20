@@ -11,19 +11,30 @@ class StationList extends Component {
         super(props);
     }
 
+    doDelete = async (stationId) => {
+        const data = await stationApi.deleteStation(stationId);
+
+        if (data) {
+            alert("刪除成功");
+        }
+
+        window.location.reload(false);
+    }
+
     async componentDidMount() {
         const data = await stationApi.getAllStation();
         this.setState({rows: data.map(r => <tr>
             <td>{r.name}</td>
             <td>{r.updateTime}</td>
-            <td><Link to={`/stationDetail/${r.id}`}>test</Link></td>
+            <td><Link to={`/stationDetail/${r.id}`}>View</Link></td>
+            <td><a href='javascript:;' onClick={() => this.doDelete(r.id)}>Del</a></td>
         </tr>)});
     }
 
     render() {
         return (
             <div>
-                <button>返回</button>
+                <button><Link to="/">返回</Link></button>
                 <table>
                     <thead>
                         <th>站點</th>

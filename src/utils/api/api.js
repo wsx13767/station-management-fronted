@@ -9,7 +9,7 @@ const api =  ({url, method, headers, data }, option = {}) => {
         mode: 'cors',
         ...option
     }).then(res => {
-        if (!res.ok) return res.json().then((error) => alert(error.error));
+        if (!res.ok) return res.json().then((error) => alert(error.message));
 
         return res.json();
     })

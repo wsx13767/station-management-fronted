@@ -51,7 +51,7 @@ class StationDetail extends Component {
                 <button onClick={this.saveStation}>儲存</button><br/>
                 <label>站點名稱</label>
                 <input type="text" ref={this.stationNameRef} value={this.state.stationName}
-                  onChange={this.changeState}></input>
+                  onChange={this.changeState} />
                 <h3>站點護士列表</h3>
                 <table>
                     <thead>

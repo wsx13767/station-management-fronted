@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { useNavigate } from 'react-router-dom';
-import stationApi from '../utils/api/stationApi.js'
+import stationApi from '../../utils/api/stationApi.js'
 
 class StationCreate extends Component {
     constructor(props) {
