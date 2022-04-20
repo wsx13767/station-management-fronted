@@ -9,13 +9,11 @@ const NurseCreate = ()=> {
     const navigate = useNavigate();
     const [selected, setSelected] = useState([]);
 
-    useEffect(()=>{
+    useEffect(async()=>{
         options = [];
-        stationApi.getAllStation().then(data => {
-            data.forEach(element => {
-                const row = {label: element.name, value: element.id};
-                options.push(row);
-            });
+        const data = await stationApi.getAllStation();
+        data.forEach(element => {
+            options.push({label: element.name, value: element.id});
         });
     }, []);
     
